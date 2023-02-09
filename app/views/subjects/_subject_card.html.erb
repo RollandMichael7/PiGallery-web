@@ -6,5 +6,6 @@
 		subtitles: [subject.species],
 		badges: subject.locations.order(:name),
 		max_badges: 5,
+		import: subject.imports.order(:created_at).first,
 	}
 %>

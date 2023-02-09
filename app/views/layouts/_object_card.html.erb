@@ -3,6 +3,12 @@
  		<%= image_tag image_path, class: "w-50 me-4 rounded shadow-sm" %>
 		<div>
 			<p>
+				<% if import.present? && import.created_at >= (Time.zone.now - 1.week) %>
+					<span class="badge bg-success object-badge link-card" data-link="imports/<%= import.id %>">
+						New!
+					</span>
+					<br>
+				<% end %>
 				<span class="lead">
 					<%= title %>
 				</span>
