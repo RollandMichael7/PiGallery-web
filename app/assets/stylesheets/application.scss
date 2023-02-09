@@ -1,0 +1,107 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+@import "bootstrap";
+@import "font-awesome";
+@import './sbadmin2/sb-admin-2.scss';
+@import "jquery-ui";
+
+$topbar-height: 50px;
+$sidebar-width: 14rem;
+
+.page-bg {
+  margin-top: -$topbar-height;
+  z-index: 4;
+}
+
+.gray-bg {
+  background: rgba(0,0,0,.6);
+}
+
+.glow {
+  filter: drop-shadow(0 0 1rem lightblue);
+}
+
+hr.sidebar-divider {
+	border-color: white !important;
+}
+
+.nav-item:hover, .nav-item.active {
+	background-color: rgba(255,255,255,.2);
+}
+
+.animated {
+  visibility: visible;
+  transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+}
+
+.topbar {
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  height: $topbar-height;
+  position: fixed;
+  top: 0;
+  transition: top 0.2s ease-in-out;
+  width: 100%;
+  z-index: 3;
+}
+
+.desktop-page {
+  margin-left: $sidebar-width;
+}
+
+.mobile-content {
+  margin-top: $topbar-height;
+}
+
+.topbar-up {
+  top: -$topbar-height;
+}
+
+.sidebar {
+  min-height: -webkit-fill-available !important;
+  z-index: 5;
+}
+.sidebar-mobile {
+  -webkit-transform: translate3d(-100%, 0px, 0px);
+  transform: translate3d(-100%, 0px, 0px);
+  overflow-y: scroll;
+}
+
+.sidebar-open {
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
+  visibility: visible;
+}
+
+.unround-left {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.cursor-pointer, .link-card {
+  cursor: pointer;
+}
+
+.fab:hover {
+  color: rgba(0,0,255,.4);
+}
+
+.object-badge:hover {
+  background-color: rgb(58, 67, 75) !important;
+}
+
+.hidden-badges {
+  display: none;
+}

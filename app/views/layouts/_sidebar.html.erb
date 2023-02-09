@@ -1,0 +1,42 @@
+<ul id="sidebar" class="navbar-nav sidebar sidebar-dark accordion w-75 position-fixed top-0 <%= browser.device.mobile? ? "sidebar-mobile animated" : "sidebar-open" %>" style="background-image: linear-gradient(dodgerblue, lightblue);">
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <a href="/">
+      <div class="d-flex justify-content-center">
+        <%= image_tag "pfp.jpg", class: "rounded-circle shadow-sm mt-4 w-50 glow" %>
+      </div>
+    </a>
+    <a class="d-flex align-items-center justify-content-center text-white text-decoration-none mt-4" href="/">
+      <h1 class="lead">
+        <%= CONFIG[:app_name].humanize.downcase %>
+      </h1>
+    </a>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <%= link_to fa_icon("instagram xl", type: :brand), "", class: "text-white mx-1" %>
+      <%= link_to fa_icon("github xl", type: :brand), "", class: "text-white mx-1" %>
+      <%= link_to fa_icon("linkedin xl", type: :brand), "", class: "text-white mx-1" %>
+    </div>
+  </div>
+  <hr class="sidebar-divider mb-2">
+  <% if CONFIG[:sidebar_items] %>
+    <% CONFIG[:sidebar_items].each_pair do |sidebar_title, data| %>
+      <%
+        address = data[:address]&.sub("/", "")
+        is_active = address&.match(/^#{controller_path}$/)
+      %>
+      <li class="nav-item me-3 mb-2 rounded-pill unround-left <%= 'active' if is_active %>">
+        <%= link_to data[:address], class: 'nav-link d-flex align-items-baseline' do %>
+          <i class="me-2 <%= data[:icon] %>"></i>
+          <span class="nav-label fs-6">
+            <%= data[:text] || sidebar_title.to_s.titlecase %>
+          </span>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+
+  <div class="d-flex justify-content-center">
+    <div class="position-fixed bottom-0 mb-2 lead text-secondary" style="font-size: 1rem">
+      <%= link_to "random!", "/random", class: "text-reset text-decoration-none" %>
+    </div>
+  </div>
+</ul>

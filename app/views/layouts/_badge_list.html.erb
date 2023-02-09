@@ -1,0 +1,25 @@
+<div class="d-flex align-items-center flex-wrap">
+	<% badges.first(max_badges).each do |object| %>
+		<% if object.is_a?(Location) %>
+			<%= render partial: "locations/location_badge", locals: { location: object } %>
+		<% elsif object.is_a?(Subject) %>
+			<%= render partial: "subjects/subject_badge", locals: { subject: object } %>
+		<% end %>
+	<% end %>
+	<% if badges.length > max_badges %>
+		<div class="badge-container">
+			<span class="badge bg-secondary me-1 mt-1 fw-normal object-badge show-all-badges">
+				+<%= badges.length - max_badges %> more
+			</span>
+			<div class="hidden-badges">
+				<% badges[max_badges..].each do |object| %>
+					<% if object.is_a?(Location) %>
+						<%= render partial: "locations/location_badge", locals: { location: object } %>
+					<% elsif object.is_a?(Subject) %>
+						<%= render partial: "subjects/subject_badge", locals: { subject: object } %>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>

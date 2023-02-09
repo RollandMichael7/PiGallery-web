@@ -1,0 +1,21 @@
+<div class="card shadow mb-4 w-100 rainbow-highlight link-card object-card" data-link="<%= link %>">
+	<div class="card-header" style="overflow: scroll">
+		<p class="text-center">
+			<span class="lead">
+				<%= title %>
+			</span>
+			<% subtitles.each do |subtitle| %>
+				<br>
+				<span class="fw-light fst-italic text-muted">
+					<%= subtitle %>
+				</span>
+			<% end %>
+		</p>
+		<div class="w-100">
+			<%= image_tag image_path, class: "w-100 rounded shadow-sm" %>
+		</div>
+		<% if badges.any? %>
+			<%= render partial: 'layouts/badge_list', locals: { badges: badges, max_badges: max_badges } %>
+		<% end %>
+	</div>
+</div>

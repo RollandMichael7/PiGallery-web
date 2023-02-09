@@ -1,0 +1,10 @@
+<%= render partial: "layouts/object_card_mobile", 
+	locals: { 
+		link: "months/#{month.id}",
+		image_path: month.images.sample.thumbnail_path,
+		title: "#{month.month} #{month.year}",
+		subtitles: [],
+		badges: month.subjects.order(:name),
+		max_badges: 5,
+	}
+%>

@@ -1,0 +1,38 @@
+<div class="card shadow mb-4 w-75 link-card image-card" data-link="assets/<%= image.file_name %>">
+	<div class="card-header d-flex flex-row align-items-center justify-content-between" style="<%= browser.device.mobile? ? "overflow: scroll" : "" %>">
+		<% if img_on_left %>
+		 	<%= image_tag image.file_name, class: "w-75 rounded shadow-sm" %>
+		<% end %>
+		<div class="fw-light <%= img_on_left ? "text-end" : "text-start" %>">
+			<p>
+				<%= image.subject.name %>
+			</p>
+			<p>
+				<%= image.location.name %>
+			</p>
+			<p>
+				<%= image.date_taken&.strftime("%B #{image.date_taken.day.ordinalize}, %Y") || "" %>
+			</p>
+			<% if image.camera_body.present? %>
+				<div class="position-absolute bottom-0 text-muted fw-lighter fst-italic p-3 <%= img_on_left ? "end-0" : "start-0" %>">
+					<p>
+						<%= image.camera_body&.humanize %> at <%= image.focal_length&.to_i %>mm
+						<br>
+	<!-- 					<%= image.focal_length.to_i %>mm
+						<br> -->
+						1/<%= (1 / image.shutter)&.to_i %>s at f/<%= image.aperture %>, <%= image.iso %> ISO
+						<br>
+	<!-- 					1/<%= (1 / image.shutter).to_i %>s
+						<br>
+						f/<%= image.aperture %>
+						<br>
+						<%= image.iso %> ISO -->
+					</p>
+				</div>
+			<% end %>
+		</div>
+		<% if !img_on_left %>
+		 	<%= image_tag image.file_name, class: "w-75 rounded shadow-sm" %>
+		<% end %>
+	</div>
+</div>

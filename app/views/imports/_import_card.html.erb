@@ -1,0 +1,10 @@
+<%= render partial: "layouts/object_card", 
+	locals: { 
+		link: "imports/#{import.id}",
+		image_path: import.images.sample.thumbnail_path,
+		title: import.created_at.strftime("%B #{import.created_at.day.ordinalize} %Y"),
+		subtitles: [],
+		badges: import.subjects.order(:name),
+		max_badges: 5,
+	}
+%>

@@ -1,0 +1,16 @@
+<nav id="topbar" class="navbar navbar-expand navbar-light topbar d-flex align-items-center" style="background-image: linear-gradient(.25turn, lightblue, white, lightblue);">
+  <!-- Sidebar Toggle (Topbar) -->
+  <% if browser.device.mobile? %>
+    <button id="sidebarToggleTop" class="sidebar-toggle btn rounded-circle ms-2 d-flex align-items-center justify-content-center pe-auto">
+      <i class="fa fa-bars fa-lg"></i>
+    </button>
+  <% end %>
+
+  <div class="navbar-nav position-absolute justify-content-center align-items-center w-100 pe-none">
+  <!-- Topbar Navbar -->
+    <a href="/" class="m-0 lead text-reset text-decoration-none pe-auto">
+      <%= CONFIG[:app_name].humanize.downcase %>
+      <%= fa_icon("crow flip-horizontal") %>
+    </a>
+  </div>
+</nav>

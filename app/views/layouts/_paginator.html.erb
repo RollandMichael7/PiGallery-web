@@ -1,0 +1,10 @@
+<div class="<%= center ? "d-flex justify-content-center w-100" : "" %>">
+	<div>
+		<%= paginate objects, window: browser.device.mobile? ? 1 : 4, param_name: :page, center: center %>
+		<div class="<%= center ? "d-flex justify-content-center" : "" %>">
+			<p>
+				<%= page_entries_info objects %>
+			</p>
+		</div>
+	</div>
+</div>

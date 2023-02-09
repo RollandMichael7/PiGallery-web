@@ -1,0 +1,1 @@
+CONFIG = YAML.load(File.read(File.expand_path("#{Rails.root}/config/application.yml", __FILE__))).deep_symbolize_keys!

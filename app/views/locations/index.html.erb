@@ -1,0 +1,48 @@
+<%= javascript_include_tag "locations", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "locations", "data-turbo-track": "reload" %>
+
+<div class="m-4">
+	<h1 class="display-4">
+		oh the places i've been
+	</h1>
+	<%= form_tag request.fullpath, method: :get do %>
+		<div class="row mb-4">
+			<div class="col-sm-3">
+				<div class="input-group mb-3">
+					<%= text_field_tag :search, params[:search], placeholder: "search by name", class: "form-control" %>
+					<button class="btn btn-primary" type="submit">
+						<i class="fas fa-search"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
+	<% @locations.each_with_index do |location, i| %>
+		<% if i % 3 == 0 %>
+			<div class="row">
+		<% end %>
+		<div class="col-sm">
+			<% if browser.device.mobile? %>
+				<%= render partial: "location_card_mobile", locals: { location: location } %>
+			<% else %>
+				<%= render partial: "location_card", locals: { location: location } %>
+			<% end %>
+		</div>
+		<% if i % 3 == 2 %>
+			</div>
+		<% end %>
+	<% end %>
+	<% if @locations.length % 3 != 0 %>
+		<% if @locations.length % 3 == 1 || @locations.length % 3 == 2 %>
+			<div class="col-sm">
+			</div>
+		<% end %>
+		<% if @locations.length % 3 == 1 %>
+			<div class="col-sm">
+			</div>
+		<% end %>
+		</div>
+	<% end %>
+	<%= render partial: "layouts/paginator", locals: { objects: @locations, center: browser.device.mobile? } %>
+</div>

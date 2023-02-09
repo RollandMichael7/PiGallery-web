@@ -1,0 +1,10 @@
+<%= render partial: "layouts/object_card", 
+	locals: { 
+		link: "locations/#{location.id}",
+		image_path: location.images.sample.thumbnail_path,
+		title: location.name,
+		subtitles: [],
+		badges: location.subjects.order(:name),
+		max_badges: 5,
+	}
+%>

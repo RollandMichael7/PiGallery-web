@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PiGallery</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= favicon_link_tag asset_path('icons/favicon.png') %>
+
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "lib/scroll-lock.min", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <% if browser.device.mobile? %>
+      <%= render 'layouts/sidebar' %>
+    <% end %>
+    <div id="page-bg" class="w-100 vh-100 animated position-fixed pe-none page-bg">
+    </div>
+    <div id="page-content" class="<%= browser.device.mobile? ? "mobile mobile-content" : "desktop-content" %>">
+      <div class="d-flex">
+        <% if !browser.device.mobile? %>
+          <%= render 'layouts/sidebar' %>
+        <% end %>
+        <div class="d-flex flex-column">
+          <% if browser.device.mobile? %>
+            <%= render 'layouts/topbar' %>
+          <% end %>
+          <div class="<%= browser.device.mobile? ? "mobile-page" : "desktop-page" %>">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

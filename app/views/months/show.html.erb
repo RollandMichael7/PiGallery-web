@@ -1,0 +1,12 @@
+<div class="m-4">
+	<div class="d-flex flex-column align-items-center">
+		<h1 class="display-4">
+			<%= @month.month %> <%= @month.year %>
+		</h1>
+		<% @images.order(:date_taken).each_with_index do |image, i| %>
+			<%= render partial: browser.device.mobile? ? "images/image_card_mobile" : "images/image_card", locals: { image: image, img_on_left: (i % 2 == 0), title: image.subject.name, subtitle: image.location.name } %>
+		<% end %>
+	</div>
+
+	<%= render partial: "layouts/paginator", locals: { objects: @images, center: true } %>
+</div>
