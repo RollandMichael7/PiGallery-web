@@ -122,6 +122,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    fastimage (2.2.6)
     ffi (1.15.5)
     font-awesome-sass (6.2.1)
       sassc (~> 2.0)
@@ -303,6 +304,7 @@ DEPENDENCIES
   debug
   dropbox_api
   exif
+  fastimage
   font-awesome-sass (~> 6.2.1)
   font_awesome5_rails
   importmap-rails

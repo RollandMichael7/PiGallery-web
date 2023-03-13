@@ -74,7 +74,7 @@ $(document).ready(function() {
 			return;
 		}
 		let link = $(this).data("link");
-		window.location = `/${link}`;
+		window.location = link.startsWith("/") ? link : `/${link}`;
 		e.stopPropagation();
 	});
 

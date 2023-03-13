@@ -1,0 +1,26 @@
+<% first_image = images.first %>
+<% image_url = URI.join(root_url, "assets/#{first_image[:image]}").to_s %>
+<% dims = FastImage.size(image_url) %>
+<% width = dims[0] %>
+<% height = dims[1] %>
+
+<div class="card shadow my-4 w-100 rainbow-highlight link-card" data-link="<%= link %>">
+	<div class="card-header" style="<%= browser.device.mobile? ? "overflow: scroll" : "" %>">
+		<p class="d-flex flex-column align-items-center justify-content-center lead">
+			<i class="<%= icon %>"></i>
+			<%= sanitize title %>
+		</p>
+		<div class="infinite-scroll-container hscroll" style="height: <%= height %>px">
+			<div class="d-flex infinite-scroll-content">
+				<% 2.times do %>
+					<% images.each do |image| %>
+						<%= render partial: "layouts/captioned_image", locals: { image: image[:image], caption: image[:caption], link: image[:link], classes: "mx-2 rounded shadow-sm" } %>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<p class="d-flex align-items-center justify-content-center lead my-2" style="font-size: 1.3rem">
+			<%= sanitize description %>
+		</p>
+	</div>
+</div>

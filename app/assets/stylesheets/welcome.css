@@ -1,0 +1,42 @@
+.infinite-scroll-container {
+  position: relative; 
+  overflow: hidden;
+}
+
+.infinite-scroll-content {
+  position: absolute; 
+  top: 0px; 
+  left: 0px; 
+  overflow: hidden; 
+  white-space: nowrap;
+  animation: bannermove 50s linear infinite;
+}
+
+.infinite-scroll-content img {    
+  margin: 0 0.5em
+}
+
+.infinite-scroll-container:hover {
+   overflow: auto;
+}
+
+.infinite-scroll-container:hover .infinite-scroll-content {
+   animation-play-state:paused;
+}
+
+.infinite-scroll-container, .infinite-scroll-content {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.infinite-scroll-container::-webkit-scrollbar, .infinite-scroll-content::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+@keyframes bannermove {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translate(-50%, 0);
+  }
+}

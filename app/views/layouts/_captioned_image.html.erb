@@ -1,0 +1,12 @@
+<% image_url = URI.join(root_url, "assets/#{image}").to_s %>
+<% dims = FastImage.size(image_url) %>
+<% width = dims[0] %>
+<% height = dims[1] %>
+
+<div style="background-image: url(<%= image_url %>); background-repeat: no-repeat; height: <%= height %>px; width: <%= width %>px; position: relative;" class="link-card <%= classes %>" data-link="<%= link %>">
+	<div class="d-flex align-items-center justify-content-center position-absolute rounded-bottom" style="width: <%= width %>px; height: <%= height * 0.1%>px; bottom: 0px; left: 0px; background-color: rgba(0,0,0,.5); color: white">
+		<p class="m-0">
+			<%= caption %>
+		</p>
+	</div>
+</div>

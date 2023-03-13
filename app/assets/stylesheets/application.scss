@@ -20,6 +20,10 @@
 $topbar-height: 50px;
 $sidebar-width: 14rem;
 
+b {
+  font-weight: 700 !important;
+}
+
 .page-bg {
   margin-top: -$topbar-height;
   z-index: 4;
