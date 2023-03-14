@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "welcome", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "lib/speech-bubble", "data-turbo-track": "reload" %>
 
 <div class="my-4 w-100">
 	<h1 class="display-4 d-flex align-items-center justify-content-center">
@@ -7,35 +8,21 @@
 
 	<div class="d-flex align-items-center justify-content-center w-100">
 		<div class="d-flex flex-column align-items-center justify-content-center" style="width: <%= browser.device.mobile? ? "90%" : "75%" %>">
-			<%= render partial: "summary_card", locals: 
-				{ 
-					link: "subjects",
-					icon: CONFIG[:sidebar_items][:subjects][:icon] + " fa-2x",
-					title: "<span>Explore <b>#{@subject_count}</b> species</span>",
-					description: "",
-					images: @subject_images,
-				}
-			%>
 
-			<%= render partial: "summary_card", locals: 
-				{ 
-					link: "locations",
-					icon: CONFIG[:sidebar_items][:locations][:icon] + " fa-2x",
-					title: "<span>in <b>#{@location_count}</b> locations</span>",
-					description: "",
-					images: @location_images,
-				}
-			%>
-
-			<%= render partial: "summary_card", locals: 
-				{ 
-					link: "months",
-					icon: CONFIG[:sidebar_items][:time][:icon] + " fa-2x",
-					title: "<span>over <b>#{@month_count}</b> months</span>",
-					description: "",
-					images: @month_images,
-				} 
-			%>
+			<% @summaries.each do |summary| %>
+				<%= render partial: "summary_card", locals: summary %>
+			<% end %>
 		</div>
 	</div>
+
+	<div class="d-flex flex-column align-items-center justify-content-center link-card" data-link="/random">
+		<div class="speech-bubble animated">
+			<p>
+				i cant decide!
+			</p>
+		</div>
+		<div style="margin-top: 2.2rem; margin-right: 15rem">
+			<%= fa_icon('crow 3x') %>
+		</div>
+	</div>	
 </div>
