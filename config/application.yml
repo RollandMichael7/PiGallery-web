@@ -1,4 +1,5 @@
 app_name: PiGallery
+new_period_days: 7
 
 sidebar_items:
   subjects:

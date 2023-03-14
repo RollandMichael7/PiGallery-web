@@ -4,6 +4,11 @@
 		 	<%= image_tag image.file_name, class: "w-75 rounded shadow-sm" %>
 		<% end %>
 		<div class="fw-light <%= img_on_left ? "text-end" : "text-start" %>">
+			<% if image.import && image.import.new? %>
+				<div class="mb-2">
+					<%= render partial: "layouts/new_badge", locals: { import: image.import } %>
+				</div>
+			<% end %>
 			<p>
 				<%= image.subject.name %>
 			</p>
