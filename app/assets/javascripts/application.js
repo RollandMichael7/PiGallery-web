@@ -77,6 +77,11 @@ $(document).ready(function() {
 		window.location = link.startsWith("/") ? link : `/${link}`;
 		e.stopPropagation();
 	});
+	$('.sidebar-link').on("click", function(e) {
+		let link = $(this).data("link");
+		window.location = link.startsWith("/") ? link : `/${link}`;
+		e.stopPropagation();
+	});
 
 	$('.rainbow-highlight').on("mouseenter", function() {
 		if (sidebarIsOpen() && isMobile()) {

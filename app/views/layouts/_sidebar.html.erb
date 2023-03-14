@@ -23,7 +23,7 @@
         address = data[:address]&.sub("/", "")
         is_active = address&.match(/^#{controller_path}$/)
       %>
-      <li class="nav-item me-3 mb-2 rounded-pill unround-left <%= 'active' if is_active %>">
+      <li class="nav-item me-3 mb-2 rounded-pill unround-left sidebar-link <%= 'active' if is_active %>" data-link="<%= data[:address] %>">
         <%= link_to data[:address], class: 'nav-link d-flex align-items-baseline' do %>
           <i class="me-2 <%= data[:icon] %>"></i>
           <span class="nav-label fs-6">
