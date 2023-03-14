@@ -1,14 +1,10 @@
 <div class="card shadow mb-4 w-100 link-card image-card" data-link="assets/<%= image.file_name %>">
 	<div class="card-header" style="overflow: scroll">
-		<% if image.import && image.import.new? %>
-			<div class="d-flex justify-content-center mb-2">
-				<%= render partial: "layouts/new_badge", locals: { import: image.import } %>
-			</div>
-		<% end %>
 		<div class="w-100">
 			<%= image_tag image.thumbnail_path, class: "w-100 rounded shadow-sm" %>
 		</div>
-		<div class="d-flex flex-column align-items-center mt-1" style="font-size: .75rem">
+		<div class="d-flex flex-column align-items-center mt-1" style="font-weight: 250">
+			<%= render partial: "layouts/new_badge", locals: { import: image.import } %>
 			<span class="lead">
 				<%= title %>
 			</span>
