@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
 		@location = Location.find(params[:id])
 
 		page_size = browser.device.mobile? ? 10 : 5
-		@images = @location.images.page(params[:page]).per(page_size)
+		@images = @location.images.order(date_taken: :desc).page(params[:page]).per(page_size)
 	end
 
 	private

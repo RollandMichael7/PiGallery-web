@@ -10,7 +10,7 @@ class SubjectsController < ApplicationController
 		@subject = Subject.find(params[:id])
 
 		page_size = browser.device.mobile? ? 10 : 5
-		@images = @subject.images.page(params[:page]).per(page_size)
+		@images = @subject.images.order(date_taken: :desc).page(params[:page]).per(page_size)
 	end
 
 	private
