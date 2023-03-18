@@ -10,7 +10,7 @@ class MonthsController < ApplicationController
 		@month = Month.find(params[:id])
 
 		page_size = browser.device.mobile? ? 10 : 5
-		@images = @month.images.order(date_taken: :desc).page(params[:page]).per(page_size)
+		@images = @month.images.order(:date_taken).page(params[:page]).per(page_size)
 	end
 
 	private
