@@ -10,7 +10,7 @@ sidebar_items:
     address: '/locations'
     icon: 'fas fa-fw fa-mountain'
     text: 'Locations'
-  time:
+  months:
     address: '/months'
     icon: 'fas fa-fw fa-clock'
     text: 'Timeline'

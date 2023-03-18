@@ -1,5 +1,6 @@
 <div class="m-4">
 	<div class="d-flex flex-column align-items-center">
+		<%= render partial: "layouts/index_link", locals: { controller: :updates } %>
 		<h1 class="display-4">
 			<%= @import.created_at.strftime("%B #{@import.created_at.day.ordinalize} %Y") %> Update
 		</h1>

@@ -39,7 +39,7 @@ class WelcomeController < ApplicationController
 
 		{
 			link: "/months",
-			icon: CONFIG[:sidebar_items][:time][:icon] + ICON_CLASS,
+			icon: CONFIG[:sidebar_items][:months][:icon] + ICON_CLASS,
 			title: "<span>over <b>#{count}</b> months</span>",
 			description: "",
 			images: images,
