@@ -1,0 +1,54 @@
+<%= javascript_include_tag js_path, "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag css_path, "data-turbo-track": "reload" %>
+
+<div class="m-4">
+	<h1 class="display-4">
+		<%= CONFIG[:sidebar_items][controller][:index_title] %>
+	</h1>
+	<%= form_tag request.fullpath, method: :get do %>
+		<div class="row mb-4">
+			<div class="col-sm-3">
+				<div class="input-group mb-3">
+					<%= text_field_tag :search, params[:search], placeholder: search_placeholder, class: "form-control" %>
+					<button class="btn btn-primary" type="submit">
+						<i class="fas fa-search"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
+	<% objects.each_with_index do |object, i| %>
+		<% 
+			partial_args = {}
+			partial_args[partial_arg_name] = object
+		%>
+
+		<% if i % 3 == 0 %>
+			<div class="row">
+		<% end %>
+		<div class="col-sm">
+			<% if browser.device.mobile? %>
+				<%= render partial: mobile_partial, locals: partial_args %>
+			<% else %>
+				<%= render partial: desktop_partial, locals: partial_args %>
+			<% end %>
+		</div>
+		<% if i % 3 == 2 %>
+			</div>
+		<% end %>
+	<% end %>
+	<% if objects.length % 3 != 0 %>
+		<% if objects.length % 3 == 1 || objects.length % 3 == 2 %>
+			<div class="col-sm">
+			</div>
+		<% end %>
+		<% if objects.length % 3 == 1 %>
+			<div class="col-sm">
+			</div>
+		<% end %>
+		</div>
+	<% end %>
+
+	<%= render partial: "layouts/paginator", locals: { objects: objects, center: browser.device.mobile? } %>
+</div>

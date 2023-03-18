@@ -1,48 +1,12 @@
-<%= javascript_include_tag "imports", "data-turbo-track": "reload" %>
-<%= stylesheet_link_tag "imports", "data-turbo-track": "reload" %>
-
-<div class="m-4">
-	<h1 class="display-4">
-		<%= CONFIG[:sidebar_items][:imports][:index_title] %>
-	</h1>
-	<%= form_tag request.fullpath, method: :get do %>
-		<div class="row mb-4">
-			<div class="col-sm-3">
-				<div class="input-group mb-3">
-					<%= text_field_tag :search, params[:search], placeholder: "search by subject or location", class: "form-control" %>
-					<button class="btn btn-primary" type="submit">
-						<i class="fas fa-search"></i>
-					</button>
-				</div>
-			</div>
-		</div>
-	<% end %>
-
-	<% @imports.each_with_index do |import, i| %>
-		<% if i % 3 == 0 %>
-			<div class="row">
-		<% end %>
-		<div class="col-sm">
-			<% if browser.device.mobile? %>
-				<%= render partial: "import_card_mobile", locals: { import: import } %>
-			<% else %>
-				<%= render partial: "import_card", locals: { import: import } %>
-			<% end %>
-		</div>
-		<% if i % 3 == 2 %>
-			</div>
-		<% end %>
-	<% end %>
-	<% if @imports.length % 3 != 0 %>
-		<% if @imports.length % 3 == 1 || @imports.length % 3 == 2 %>
-			<div class="col-sm">
-			</div>
-		<% end %>
-		<% if @imports.length % 3 == 1 %>
-			<div class="col-sm">
-			</div>
-		<% end %>
-		</div>
-	<% end %>
-	<%= render partial: "layouts/paginator", locals: { objects: @imports, center: browser.device.mobile? } %>
-</div>
+<%= render partial: "layouts/index_page", 
+	locals: { 
+		controller: :imports,
+		js_path: "imports",
+		css_path: "imports",
+		search_placeholder: "search by subject or location",
+		objects: @imports,
+		mobile_partial: "import_card_mobile",
+		desktop_partial: "import_card",
+		partial_arg_name: :import,
+	}
+%>

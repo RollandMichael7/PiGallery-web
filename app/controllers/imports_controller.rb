@@ -1,6 +1,6 @@
 class ImportsController < ApplicationController
 	def index		
-		@imports = Import.all.order("date(created_at) DESC")
+		@imports = Import.all.order("date(imports.created_at) DESC")
 		@imports = apply_search(@imports)
 
 		@imports = @imports.page(params[:page]).per(15)
