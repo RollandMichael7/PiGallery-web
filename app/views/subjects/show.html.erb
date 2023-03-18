@@ -1,16 +1,10 @@
-<div class="m-4">
-	<div class="d-flex flex-column align-items-center">
-		<%= render partial: "layouts/index_link", locals: { controller: :subjects } %>
-		<h1 class="display-4">
-			<%= @subject.name %>
-		</h1>
-		<h3 class="fw-light fst-italic text-muted">
-			<%= @subject.species %>
-		</h3>
-		<% @images.order(:date_taken).each_with_index do |image, i| %>
-			<%= render partial: browser.device.mobile? ? "images/image_card_mobile" : "images/image_card", locals: { image: image, img_on_left: (i % 2 == 0), title: image.location.name, subtitle: nil } %>
-		<% end %>
-	</div>
-
-	<%= render partial: "layouts/paginator", locals: { objects: @images, center: true } %>
-</div>
+<%= render partial: "layouts/show_page", 
+	locals: { 
+		controller: :subjects,
+		title: @subject.name,
+		subtitle: @subject.species,
+		images: @images,
+		image_title_field: "location.name",
+		image_subtitle_field: nil,
+	}
+%>

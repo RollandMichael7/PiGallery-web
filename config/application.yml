@@ -3,18 +3,22 @@ new_period_days: 7
 
 sidebar_items:
   subjects:
-    address: '/subjects'
-    icon: 'fas fa-fw fa-camera'
-    text: 'Subjects'
+    address: "/subjects"
+    icon: "fas fa-fw fa-camera"
+    text: "Subjects"
+    index_title: "life list"
   locations:
-    address: '/locations'
-    icon: 'fas fa-fw fa-mountain'
-    text: 'Locations'
+    address: "/locations"
+    icon: "fas fa-fw fa-mountain"
+    text: "Locations"
+    index_title: "oh the places i've been"
   months:
-    address: '/months'
-    icon: 'fas fa-fw fa-clock'
-    text: 'Timeline'
-  updates:
-    address: '/imports'
-    icon: 'fas fa-fw fa-gift'
-    text: 'Updates'
+    address: "/months"
+    icon: "fas fa-fw fa-clock"
+    text: "Timeline"
+    index_title: "through the years"
+  imports:
+    address: "/imports"
+    icon: "fas fa-fw fa-gift"
+    text: "Updates"
+    index_title: "new bird just dropped"
