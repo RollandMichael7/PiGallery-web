@@ -19,8 +19,8 @@ class MonthsController < ApplicationController
 		search = params[:search]
 
 		if search.present?
-			months = months.joins(images: :location).where(
-				"lower(months.month) LIKE :search OR months.year LIKE :search OR lower(locations.name) LIKE :search",
+			months = months.joins(images: :subject).where(
+				"lower(months.month) LIKE :search OR months.year LIKE :search OR lower(subjects.name) LIKE :search",
 				{ search: "%#{search}%" },
 			).distinct
 		end

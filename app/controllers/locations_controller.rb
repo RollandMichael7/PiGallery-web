@@ -19,8 +19,8 @@ class LocationsController < ApplicationController
 		search = params[:search]
 
 		if search.present?
-			locations = locations.where(
-				"lower(name) LIKE :search",
+			locations = locations.joins(images: :subject).where(
+				"lower(locations.name) LIKE :search OR lower(subjects.name) LIKE :search",
 				{ search: "%#{search}%" },
 			).distinct
 		end
