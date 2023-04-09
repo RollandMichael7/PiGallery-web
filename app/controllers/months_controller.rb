@@ -1,6 +1,6 @@
 class MonthsController < ApplicationController
 	def index
-		@months = Month.order(:year, :month_index)
+		@months = Month.order({year: :desc, month_index: :desc})
 		@months = apply_search(@months)
 
 		@months = @months.page(params[:page]).per(15)
