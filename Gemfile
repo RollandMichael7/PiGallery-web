@@ -35,6 +35,7 @@ gem "font-awesome-sass", "~> 6.2.1"
 gem "font_awesome5_rails"
 
 gem 'dropbox_api'
+gem 'google-maps'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 gem 'exif'

@@ -12,6 +12,11 @@ sidebar_items:
     icon: "fas fa-fw fa-mountain"
     text: "Locations"
     index_title: "oh the places i've been"
+  map:
+    address: "/map"
+    icon: "fas fa-fw fa-map"
+    text: "Map"
+    index_title: "oh the places i've been (on a map)"
   months:
     address: "/months"
     icon: "fas fa-fw fa-clock"

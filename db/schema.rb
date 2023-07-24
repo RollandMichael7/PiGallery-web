@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_06_005014) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_24_012135) do
   create_table "images", force: :cascade do |t|
     t.string "app_path"
     t.string "name_detail"
@@ -43,6 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_06_005014) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "latitude"
+    t.decimal "longitude"
     t.index ["name"], name: "index_locations_on_name", unique: true
   end
 

@@ -25,7 +25,7 @@ class WelcomeController < ApplicationController
 		count = Location.count
 
 		{
-			link: "/locations",
+			link: "/map",
 			icon: CONFIG[:sidebar_items][:locations][:icon] + ICON_CLASS,
 			title: "<span>in <b>#{count}</b> locations</span>",
 			description: "",

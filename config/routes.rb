@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   resources :months, only: [:index, :show]
   resources :imports, only: [:index, :show]
   resources :images, only: [:show]
+  resources :map, only: [:index] do
+    collection do
+      get :coordinates
+    end
+  end
 
   resources :random, only: [:index]
   resources :welcome, only: [:index]

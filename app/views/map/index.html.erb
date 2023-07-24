@@ -1,0 +1,8 @@
+<%= javascript_include_tag "map", "data-turbo-track": "reload" %>
+
+<div class="p-4 vh-100">
+	<h1 class="display-4 mb-2">
+		hello world
+	</h1>
+	<div id="map" class="g-map w-100 <%= browser.device.mobile? ? "g-map-mobile" : "h-75" %>"></div>
+</div>

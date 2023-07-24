@@ -12,6 +12,11 @@
     <%= javascript_include_tag "lib/scroll-lock.min", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "lib/hscroll.min", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["PIGALLERY_GOOGLE_MAPS_KEY"] %>&callback=initMap&v=weekly"
+      defer
+    ></script>
   </head>
 
   <body>

@@ -93,6 +93,22 @@ hr.sidebar-divider {
   visibility: visible;
 }
 
+.g-map-mobile {
+  height: 85% !important;
+}
+
+.g-map, .g-map > div {
+  border-radius: 10px;
+}
+
+.g-map-pin-content {
+  max-width: 400px;
+}
+
+.g-map-pin-img {
+  width: 100%;
+}
+
 .unround-left {
   border-top-left-radius: 0px !important;
   border-bottom-left-radius: 0px !important;
