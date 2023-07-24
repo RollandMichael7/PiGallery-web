@@ -10,6 +10,7 @@ class MapController < ApplicationController
 				image: ActionController::Base.helpers.asset_path(location.images.sample.thumbnail_path),
 				latitude: location.latitude,
 				longitude: location.longitude,
+				month_range: location.month_range,
 			}
 		end
 

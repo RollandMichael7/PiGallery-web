@@ -108,8 +108,14 @@ hr.sidebar-divider {
 .g-map-mobile .g-map-pin-content {
   max-width: 200px;
 }
+
+.g-map-pin-content > a:hover > .g-map-pin-title {
+  text-decoration: underline;
+}
+
 .g-map-pin-img {
   width: 100%;
+  transition-duration: 250ms;
 }
 
 .unround-left {

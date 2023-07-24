@@ -22,9 +22,18 @@ function initPins() {
 		type: 'GET',
 		success: function(coords) {
 			coords.forEach(coord => {
+				let fromMonth = coord.month_range["from"];
+				let toMonth = coord.month_range["to"];
+
+				let monthRange = fromMonth;
+				if (toMonth != monthRange) {
+					monthRange += ` - ${toMonth}`;
+				}
+
 				let content = `<div class="g-map-pin-content">` +
 					`<a href="/locations/${coord.id}" style="color: inherit">` +
 					`<h5 class="g-map-pin-title"> ${coord.name} </h5>` +
+					`<p class="g-map-pin-subtitle fw-light fst-italic text-muted"> ${monthRange} </p>` +
 					`<img class="g-map-pin-img" src=${coord.image}>` +
 					`</a>` +
 					`</div>`;
