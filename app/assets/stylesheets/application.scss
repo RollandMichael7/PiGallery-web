@@ -94,10 +94,10 @@ hr.sidebar-divider {
 }
 
 .g-map-mobile {
-  height: 85% !important;
+  height: 75% !important;
 }
 
-.g-map, .g-map > div {
+.g-map, .g-map > div, .g-map-pin-img {
   border-radius: 10px;
 }
 
@@ -105,6 +105,9 @@ hr.sidebar-divider {
   max-width: 400px;
 }
 
+.g-map-mobile .g-map-pin-content {
+  max-width: 200px;
+}
 .g-map-pin-img {
   width: 100%;
 }

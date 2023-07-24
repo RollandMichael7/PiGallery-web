@@ -8,8 +8,11 @@ function initMap() {
 	map = new google.maps.Map(mapElem[0], {
 		center: { lat: 39.877742, lng: -93.380979 },
 		zoom: isMobile ? 3 : 5,
+		// display only fullscreen control
 		disableDefaultUI: true,
 		fullscreenControl: true,
+		// allow panning with one finger on mobile
+		gestureHandling: "greedy",
 	});
 }
 
