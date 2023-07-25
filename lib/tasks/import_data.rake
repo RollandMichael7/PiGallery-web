@@ -36,6 +36,10 @@ namespace :pigallery do
 						location_obj = Location.find_or_create_by!(name: img_hash["location"])
 						month_obj = now_month_obj
 
+						if location_obj.latitude.nil?
+							location_obj.set_coords_from_geocode
+						end
+
 						file_name = File.basename(img_obj.app_path)
 
 						# thumb_data = nil
