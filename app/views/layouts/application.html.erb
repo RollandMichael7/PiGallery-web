@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PiGallery</title>
+    <title>mikey birds</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,7 +14,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["PIGALLERY_GOOGLE_MAPS_KEY"] %>&callback=initMap&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["PIGALLERY_GOOGLE_MAPS_FE_KEY"] %>&callback=initMap&v=weekly"
       defer
     ></script>
   </head>
