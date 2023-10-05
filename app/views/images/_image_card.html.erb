@@ -10,7 +10,10 @@
 				</div>
 			<% end %>
 			<p>
-				<%= image.subject.name %>
+				<%= image.subject.name %> 
+				<% if image.full_name_detail.presence %>
+					(<%= image.full_name_detail %>)
+				<% end %>
 			</p>
 			<p>
 				<%= image.location.name %>

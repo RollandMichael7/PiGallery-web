@@ -5,6 +5,11 @@
 		</div>
 		<div class="d-flex flex-column align-items-center mt-1" style="font-weight: 250">
 			<%= render partial: "layouts/new_badge", locals: { import: image.import } %>
+			<% if image.full_name_detail.presence %>
+				<span class="fst-italic">
+					<%= image.full_name_detail %>
+				</span>
+			<% end %>
 			<span class="lead">
 				<%= title %>
 			</span>
